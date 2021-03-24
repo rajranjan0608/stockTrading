@@ -1,0 +1,54 @@
+#hamBurger {
+    transition: transform 0.4s;
+  }
+
+  #sideNav {
+    transition: transform 0.4s;
+  }
+
+  @media only screen and (max-width: 600px) {
+    #sideNav {
+      transform: translateX(-240px);
+    }
+
+    #hamBurger {
+      transform: translateX(0px);
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    #hamBurger {
+      transform: translateX(240px);
+    }
+  }
+
+  #sideNav::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  #sideNav::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(255, 255, 255);
+    background-color: rgb(218, 218, 218);
+    border-radius: 10px;
+  }
+
+  #sideNav::-webkit-scrollbar-thumb {
+    background: rgb(194, 189, 189);
+    border-radius: 10px;
+  }
+
+  #coverAll {
+    width:100%;
+    height:100%;
+    opacity:.95;
+    top:0;
+    left:0;
+    display:none;
+    position:fixed;
+    background-color:rgba(0, 0, 0, 0.5);
+    overflow:auto
+  }
+
+  td font:active{
+      font-weight:bold;
+  }

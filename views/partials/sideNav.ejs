@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/sideNav.css">
+
+<div id="coverAll" onclick="hideSideNav()"></div>
+  
+<div id="sideNav" class="shadow-lg" style="z-index: 10000; background-color: white; top: 0px; width: 240px; float: left; height: 100vh; position: fixed; overflow-y: scroll;">
+    <center style="margin-top: 20px">
+        <img 
+            src = "https://blogs.3ds.com/northamerica/wp-content/uploads/sites/4/2019/08/Robots-Square.jpg"
+            style = "border-radius: 50px; width: 80px; height: 80px; padding: 5px;"
+            class = "shadow"
+        /><br><br>
+
+        <font size=3 class="text-muted"><%=user.fullName%></font>
+    </center>
+
+    <table class="table table-hover table-border" style="margin-top: 15px; cursor: pointer;">
+        <tr onclick="location.href='#about'">
+            <td>
+                <img class="bottomNavIcon" style="width:25px; height:25px; float: left; margin-right: 10px;" src="https://img.icons8.com/fluent/48/000000/dashboard-layout.png"/>
+                <font size=2 class="text-muted">Dashboard</font>
+                <img class="bottomNavIcon compressedIcons"style="width:25px; height:25px; float:right; display:none" src="https://img.icons8.com/fluent/48/000000/dashboard-layout.png"/>
+            </td>
+        </tr>
+
+        <tr onclick="location.href='#skills'">
+            <td>
+                <img class="bottomNavIcon" style="width:25px; height:25px; float: left; margin-right: 10px;" src="https://img.icons8.com/cotton/64/000000/add-receipt.png"/>
+                <font size=2 class="text-muted">Transactions</font>
+                <img class="bottomNavIcon compressedIcons"style="width:25px; height:25px; float:right; display:none" src="https://img.icons8.com/cotton/64/000000/add-receipt.png"/>
+            </td>
+        </tr>
+
+        <tr onclick="location.href='/funds'">
+            <td>
+                <img class="bottomNavIcon" style="width:25px; height:25px; float: left; margin-right: 10px;" src="https://img.icons8.com/ios/452/rupee.png"/>
+                <font size=2 class="text-muted">Funds</font>
+                <img class="bottomNavIcon compressedIcons"style="width:25px; height:25px; float:right; display:none" src="https://img.icons8.com/ios/452/rupee.png"/>
+            </td>
+        </tr>
+
+        <tr onclick="location.href='/resume.html'">
+            <td>
+                <img class="bottomNavIcon" style="width:25px; height:25px; float: left; margin-right: 10px;" src="https://img.icons8.com/fluent/64/000000/portfolio.png"/>
+                <font size=2 class="text-muted">Instances</font>
+                <img class="bottomNavIcon compressedIcons"style="width:25px; height:25px; float:right; display:none" src="https://img.icons8.com/fluent/64/000000/portfolio.png"/>
+            </td>
+        </tr>
+
+        <tr onclick="location.href='/resume.html'">
+            <td>
+                <img class="bottomNavIcon" style="width:25px; height:25px; float: left; margin-right: 10px;" src="https://img.icons8.com/color/48/000000/lifecycle--v4.png"/>
+                <font size=2 class="text-muted">Profile</font>
+                <img class="bottomNavIcon compressedIcons"style="width:25px; height:25px; float:right; display:none" src="https://img.icons8.com/color/48/000000/lifecycle--v4.png"/>
+            </td>
+        </tr>
+
+        <tr onclick="location.href='#projects'">
+            <td>
+                <img class="bottomNavIcon" style="width:25px; height:25px; float: left; margin-right: 10px;" src="https://img.icons8.com/color/48/000000/settings.png"/>
+                <font size=2 class="text-muted">Settings</font>
+                <img class="bottomNavIcon compressedIcons"style="width:25px; height:25px; float:right; display:none" src="https://img.icons8.com/color/48/000000/settings.png"/>
+            </td>
+        </tr>
+    </table>  
+</div>
+
+<script src="/sideNav.js"></script>

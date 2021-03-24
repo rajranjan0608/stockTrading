@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instance</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<style>
+    .zoom:hover {
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+
+    .blueButton {
+        background-color: #175fa3;
+        border: none;
+        color: white;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 12px;
+        float: left;
+    }
+
+    .vert {
+        overflow-y: scroll;
+    }
+
+    .vert::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+    }
+
+    .vert::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px rgb(255, 255, 255);
+        background-color: rgb(218, 218, 218);
+        border-radius: 10px;
+    }
+
+    .vert::-webkit-scrollbar-thumb {
+        background: rgb(194, 189, 189);
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <!-- Side navigation bar -->
+    <img alt=">" src='https://img.icons8.com/fluent/50/000000/menu.png' onclick="showSideNav()" id="hamBurger" style="z-index: 100; width: 30px; height: 30px; position: fixed; left: 10px; top: 10px; cursor: pointer;"/>
+
+    <!-- TradingView Widget BEGIN -->
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
+    <!-- <div id="sideNavHolder">
+        <%include ./partials/sideNav.ejs%>
+    </div> -->
+ 
+    <%include ./partials/searchTicker.ejs%>
+
+    <div style="margin: 20px">
+        <div class="row">
+            <div id="chartHolder" symbol="<%=symbol%>" class="col-sm-8" style="margin-top: 20px; margin-left: -20px; float: left">
+                <script type="text/javascript">
+                    new TradingView.widget({
+                        "container_id": 'technical-analysis',
+                        "width": 800,
+                        "height": 400,
+                        "symbol": document.getElementById("chartHolder").symbol,
+                        "interval": "H",
+                        "timezone": "exchange",
+                        "theme": "White",
+                        "style": "1",
+                        "toolbar_bg": "#f1f3f6",
+                        "withdateranges": true,
+                        "hide_side_toolbar": false,
+                        "allow_symbol_change": false,
+                        "save_image": false,
+                        "hideideas": true,
+                        "studies": [],
+                        "show_popup_button": true,
+                        "popup_width": "1000",
+                        "popup_height": "650"
+                    });
+                </script>
+            </div>
+
+            <div class="col-sm-4" style="margin-left: 10px;">
+                <div class="card shadow-lg vert" style="float: right; width: 350px; height: 400px; margin: 20px auto;">
+                    <font size = 3 class="text-muted" style="margin: 10px">
+                        Selected stocks
+                    </font>
+
+                    <div class="card shadow dropDown" onmouseover="showDiv('TATASTEEL')" onmouseout="hideDiv('TATASTEEL')" style="margin: 5px; cursor: pointer;">
+                        <font size = 2 style="margin-left: 5px; margin-top: 5px; letter-spacing: 1px;">
+                            <b>TATASTEEL</b>
+                            <font size = 2 color="#26a69a">₹710.50</font>
+                            <img style="width: 20px; height: 20px; margin-right: 5px; float: right;" src="https://img.icons8.com/ios/50/000000/delete--v1.png"/>
+                        </font>
+
+                        <br>
+
+                        <div style="display: none;" id="TATASTEEL">
+                            <div style="width: 95%; margin: 2px auto; margin-bottom: 10px;">
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                
+                                <div>
+                                    <span>
+                                        <font size = 1 class="text-muted">Daily Target</font>
+                                    </span>
+                                    <span style="float: right;">
+                                        <font size = 1 class="text-muted">1.34 / <%=5*instance.dayProfit%>%</font>
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <div style="width: 95%; margin: 2px auto; margin-bottom: 10px;">
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                
+                                <div>
+                                    <span>
+                                        <font size = 1 class="text-muted">Weekly Target</font>
+                                    </span>
+                                    <span style="float: right;">
+                                        <font size = 1 class="text-muted">1.34 / <%=5*instance.dayProfit%>%</font>
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <div style="width: 95%; margin: 2px auto; margin-bottom: 10px;">
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                
+                                <div>
+                                    <span>
+                                        <font size = 1 class="text-muted">Monthly Target</font>
+                                    </span>
+                                    <span style="float: right;">
+                                        <font size = 1 class="text-muted">1.34 / <%=5*instance.dayProfit%>%</font>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="showLoginModal()" class="btn btn-info" style="margin: 20px auto;">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <hr>
+
+        <h5><b>Instance 1 <font size=2 class="text-muted"><%=instance._id%></font></b></h5>
+        <div class="row">
+            <div class="col-sm-8" style="margin-top: 20px; margin-left: -20px; float: left">
+                <div class="shadow" style="width: 800px; height: 400px; margin-left: 30px; border:1px solid rgba(0,0,0,.125); border-radius: 0.25rem;">
+                    <center style="float: right; width: 100px; margin: 10px">
+                        <span id="onButton" style="display: none" onclick="toggleTrading(0)">
+                            <img src="https://img.icons8.com/color/50/000000/toggle-on--v1.png" style="width: 40px; height: 40px; cursor: pointer;"/><br>
+                            <font size=2 class=""><b>Stop</b></font>
+                        </span>
+                        <span id="offButton" onclick="toggleTrading(1)">
+                            <img src="https://img.icons8.com/color/48/000000/toggle-off.png" style="width: 40px; height: 40px; cursor: pointer;"/><br>
+                            <font size=2 class=""><b>Start</b></font>
+                        </span>
+                    </center>
+
+                    <table class="table table-bordered" style="font-size: 15px; width: 80%; margin: 10px;">
+                        <tr>
+                            <td>
+                                <b>Investment</b>
+                            </td>
+                            <td>
+                                ₹<%=instance.investment%>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <b>Current (Till last session)</b>
+                            </td>
+                            <td>
+                                ₹<%=instance.investment%>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <b>Goal</b>
+                            </td>
+                            <td>
+                                ₹<%=instance.goal%>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <b>Total Compunding sessions</b>
+                            </td>
+                            <td>
+                                <%=instance.time%> months
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-sm-4" style="margin-left: 10px;">
+                <div class="card shadow-lg" style="float: right; width: 350px; height: 400px; margin: 20px auto;">
+                    <font size = 3 class="text-muted" style="margin: 10px">
+                        Current strategy - (VWAP - MACD)
+                    </font>
+
+                    <div class="card shadow" style="margin: 5px; height: 90%;">
+                        <font size = 2 style="margin-left: 5px; margin-top: 5px; letter-spacing: 1px;">
+                            <b>TATASTEEL</b>
+                            <font size = 2 color="#26a69a">₹710.50</font>
+                        </font>
+
+                        <br>
+
+                        <div class="fadeDropdown">
+                            <div style="width: 95%; margin: 2px auto; margin-bottom: 10px;">
+                                <div class="progress" style="height: 5px; background-color: rgb(224, 52, 52);">
+                                    <div class="progress-bar" role="progressbar" style="width: 60%; background-color: #26a69a;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                
+                                <div>
+                                    <span>
+                                        <font size = 1 class="text-muted">Engulfing</font>
+                                    </span>
+                                    <span style="float: right;">
+                                        <font size = 1 class="text-muted">1.34 / <%=5*instance.dayProfit%>%</font>
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <div style="width: 95%; margin: 2px auto; margin-bottom: 10px;">
+                                <div class="progress" style="height: 5px; background-color: rgb(224, 52, 52);;">
+                                    <div class="progress-bar" role="progressbar" style="width: 40%; background-color: #26a69a;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                
+                                <div>
+                                    <span>
+                                        <font size = 1 class="text-muted">MACD Breakdown</font>
+                                    </span>
+                                    <span style="float: right;">
+                                        <font size = 1 class="text-muted">1.34 / <%=5*instance.dayProfit%>%</font>
+                                    </span>
+                                </div>
+                            </div>
+    
+                            <div style="width: 95%; margin: 2px auto; margin-bottom: 10px;">
+                                <div class="progress" style="height: 5px; background-color: rgb(224, 52, 52);;">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #26a69a;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                
+                                <div>
+                                    <span>
+                                        <font size = 1 class="text-muted">VWAP Breakdown</font>
+                                    </span>
+                                    <span style="float: right;">
+                                        <font size = 1 class="text-muted">1.34 / <%=5*instance.dayProfit%>%</font>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div style="width: 95%; margin: 2px auto; margin-bottom: 10px;">
+                                <div class="progress" style="height: 5px; background-color: rgb(224, 52, 52);;">
+                                    <div class="progress-bar" role="progressbar" style="width: 25%; background-color: #26a69a;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                
+                                <div>
+                                    <span>
+                                        <font size = 1 class="text-muted">Previous trend</font>
+                                    </span>
+                                    <span style="float: right;">
+                                        <font size = 1 class="text-muted">1.34 / <%=5*instance.dayProfit%>%</font>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+    </div>
+
+    <!-- Bottom Navigation bar
+    <div id="bottomNavHolder">
+        <%include ./partials/bottomNav.ejs%>
+    </div> -->
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<script>
+    function showDiv(id) {
+        document.getElementById(id).style.display = "block";
+    }
+
+    function hideDiv(id) {
+        document.getElementById(id).style.display = "none";
+    }
+
+    function toggleTrading(state) {
+        var offButton = document.getElementById('offButton');
+        var onButton = document.getElementById('onButton');        
+        if(state == 1) {
+            offButton.style.display = "none";
+            onButton.style.display = "block";
+        } else {
+            onButton.style.display = "none";
+            offButton.style.display = "block";
+        }
+    }
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script src="/tickerSearch.js" ></script>
+
+</html>

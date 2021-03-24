@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Page Not Found</title>
+</head>
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+
+<body style="background-color: #f8f9fa; overflow: hidden;">
+        <br>
+        <div style="color:grey; text-align: center"  class="container">
+                <h2>Securities Investment Manager</h2>
+		<%if(error){%>
+			That's an ERROR.<br>
+			<%=error%>
+		<%} else {%>
+		 	<strong>404. </strong>That's an ERROR.<br>
+               		Requested page could not be found on this Server
+		<%}%>
+                
+            </div><br>
+            <div style=" text-align: center">
+                <video playsinline muted style="width: 300px;" src="/pingpong_animation_render.mp4" autoplay loop></video>
+                <br>
+                <!-- <img style="width:40%;" src="/pageNotFound/pageNotFound.png"> -->
+                <a href="/"><button style="margin-top:10px;" class="btn btn-info">Home</button></a>
+            </div>
+</body>
+</html>

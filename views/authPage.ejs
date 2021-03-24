@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authenticate</title>
+</head>
+
+<link rel="stylesheet" href="/authPage.css">
+
+<body>
+    <div id="signin">
+        <div class="login" style="display: block;">
+            <h1>Login to Stock Trading App</h1>
+            <form method="post" action="/api/signin">
+              <p><input type="text" name="username" value="" placeholder="Username or Email"></p>
+              <p><input type="password" name="password" value="" placeholder="Password"></p>
+              <p class="remember_me">
+                <label>
+                  <input type="checkbox" name="remember_me" id="remember_me">
+                  Remember me on this computer
+                </label>
+              </p>
+              <p class="submit"><input type="submit" name="commit" value="Login"></p>
+            </form>
+        </div>
+          
+        <div class="login-help">
+            <p>Not registered? <span onclick="showSignup()" style="cursor: pointer;">Click here to register.</span></p>
+        </div>
+    </div>
+
+    <div id="signup" style="display: none;">
+        <div class="login">
+            <h1>Register to Stock Trading App</h1>
+            <form method="post" action="/api/signup">
+              <p><input type="text" name="username" value="" placeholder="Username"></p>
+              <p><input type="text" name="email" value="" placeholder="Email"></p>
+              <p><input type="text" name="fullName" value="" placeholder="Full Name"></p>
+              <p><input type="password" name="password" value="" placeholder="Password"></p>
+              <p class="remember_me">
+                <label>
+                  <input type="checkbox" name="remember_me" id="remember_me">
+                  Remember me on this computer
+                </label>
+              </p>
+              <p class="submit"><input type="submit" name="commit" value="Register"></p>
+            </form>
+        </div>
+
+        <div class="login-help">
+            <p>Already registered? <span onclick="showSignup()" style="cursor: pointer;">Click here to login.</span></p>
+        </div>
+    </div>
+</body>
+
+<script>
+    var isSignup = false;
+    function showSignup() {
+        if(isSignup == false) {
+            isSignup = true;
+            document.getElementById("signup").style.display = "block"
+            document.getElementById("signin").style.display = "none"
+        } else {
+            isSignup = false;
+            document.getElementById("signup").style.display = "none"
+            document.getElementById("signin").style.display = "block"
+        }
+    }
+</script>
+
+</html>

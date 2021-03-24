@@ -1,0 +1,66 @@
+<link rel="stylesheet" href="./sideNav.css">
+
+<div id="coverAll" onclick="hideSideNav()"></div>
+  
+<div id="sideNav" class="shadow-lg" style="z-index: 10000; background-color: white; top: 0px; width: 240px; float: left; height: 100vh; position: fixed; overflow-y: scroll;">
+
+<center style="margin-top: 20px">
+    <img 
+        src = "https://blogs.3ds.com/northamerica/wp-content/uploads/sites/4/2019/08/Robots-Square.jpg"
+        style = "border-radius: 50px; width: 80px; height: 80px; padding: 5px;"
+        class = "shadow"
+    />
+</center>
+
+<table class="table table-hover table-border" style="margin-top: 15px; cursor: pointer;">
+    <tr onclick="location.href='#about'">
+        <td>
+            <i class="material-icons bottomNavIcon" style="float: left; margin-right: 10px;">dashboard</i>
+            <a href="#about"><font size=2 class="text-muted">Dashboard</font></a>
+            <i class="material-icons bottomNavIcon compressedIcons" style="float:right; display:none">dashboard</i>
+        </td>
+    </tr>
+
+    <tr onclick="location.href='#skills'">
+        <td>
+            <i class="material-icons bottomNavIcon" style="float: left; margin-right: 10px;">person</i>
+            <font size=2 class="text-muted">Profile</font>
+            <i class="material-icons bottomNavIcon compressedIcons" style="float:right; display:none">person</i>
+        </td>
+    </tr>
+
+    <tr onclick="location.href='/resume.html'">
+        <td>
+            <i class="material-icons bottomNavIcon" style="float: left; margin-right: 10px;">devices</i>
+            <font size=2 class="text-muted">Instances</font>
+            <i class="material-icons bottomNavIcon compressedIcons" style="float:right; display:none">devices</i>
+        </td>
+    </tr>
+
+    <tr onclick="location.href='/resume.html'">
+        <td>
+            <i class="material-icons bottomNavIcon" style="float: left; margin-right: 10px;">devices</i>
+            <font size=2 class="text-muted">Funds</font>
+            <i class="material-icons bottomNavIcon compressedIcons" style="float:right; display:none">devices</i>
+        </td>
+    </tr>
+
+    <tr onclick="location.href='/resume.html'">
+        <td>
+            <i class="material-icons bottomNavIcon" style="float: left; margin-right: 10px;">devices</i>
+            <font size=2 class="text-muted">Transactions</font>
+            <i class="material-icons bottomNavIcon compressedIcons" style="float:right; display:none">devices</i>
+        </td>
+    </tr>
+
+    <tr onclick="location.href='#projects'">
+        <td>
+            <i class="material-icons bottomNavIcon" style="float: left; margin-right: 10px;">settings</i>
+            <font size=2 class="text-muted">Settings</font>
+            <i class="material-icons bottomNavIcon compressedIcons" style="float:right; display:none">settings</i>
+        </td>
+    </tr>
+</table>  
+</div>
+
+<script src="./sideNav.js"></script>

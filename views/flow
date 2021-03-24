@@ -1,0 +1,21 @@
+Auth -> Dashboard -> Create Instance
+                        - Selected Stocks
+                        - Investment amount
+                        - others
+
+Stock Data  - ScripID of selected stocks
+            - Other details
+
+Trading Area - Of each instance 
+    - List of selected Stocks
+    - Selecting stocks will give chart details, etc.
+    - List of strategies to chose.
+    -  
+
+1. Select stocks -> put the data in the selected stocks
+                 -> put the data in trackingStocks
+        
+2. Start/Stop trading -> use yahoo api to fetch 5 min data and store it in trackingStocks
+                      -> running functions to trigger buy/sell action on 5 min stock data.
+                
+3. 
